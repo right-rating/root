@@ -1,0 +1,11 @@
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+#rightReviewLogo {
+    width: 50%;
+}
+#siteSummaryTitle {
+    color: #EF8711;
+    font-weight: bold;
+}
