@@ -25,30 +25,30 @@
       $jsonData = json_decode($rawJsonString, true);
 
       // TODO: do stuff to get the $results which is an associative array
-      $host = "127.0.0.1";
-      $dbname = "dashboard";
-      $username = "jahenderson";
-      $password = "";
-  
+      $dbname = 'heroku_2f5d071b652d3b7'
+      $host = 'us-cdbr-iron-east-02.cleardb.net';
+      $username = 'b5f872661c80e1';
+      $password = '4cb4913a';
+
       // Get Data from DB
       $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-      $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+      $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      $sql = "SELECT * FROM user " .
-             "WHERE email = :email ";
-      
+      $sql = "SELECT * FROM users " .
+             "WHERE user_email = :email ";
+
       $stmt = $dbConn->prepare($sql);
       $stmt->execute(array (":email" => $_POST['email']));
-      
+
       $record = $stmt->fetch();
-      
+
       $isAuthenticated = password_verify($_POST["password"], $record["password"]);
-        
+
       if ($isAuthenticated) {
-        $_SESSION["email"] = $record["email"];
-        $_SESSION["isAdmin"] = $record["is_admin"];
+        $_SESSION["user_email"] = $record["user_email"];
+        $_SESSION["user_role"] = $record["user_role"];
       }
-      
+
       // Allow any client to access
       header("Access-Control-Allow-Origin: *");
       // Let the client know the format of the data being returned

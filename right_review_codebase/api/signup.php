@@ -28,32 +28,32 @@
       $jsonData = json_decode($rawJsonString, true);
 
       // Perform password validations
-      
+
       // Was a password provided?
       if (empty($_POST["password"])) {
         echo json_encode(array(
-          "isSignedUp" => false, 
+          "isSignedUp" => false,
           "message" => "No password provided"));
-          
+
         exit;
       }
 
       if (empty($_POST["confirmation"])) {
         echo json_encode(array(
-          "isSignedUp" => false, 
+          "isSignedUp" => false,
           "message" => "No password confirmation provided"));
-          
+
         exit;
       }
 
       if ($_POST["password"] != $_POST["confirmation"]) {
         echo json_encode(array(
-          "isSignedUp" => false, 
+          "isSignedUp" => false,
           "message" => "password does not equal confirmation"));
-          
+
         exit;
       }
-      
+
       // Hash my password!!!!!!
       $options = [
         'cost' => 11,
@@ -62,42 +62,42 @@
       $hashedPassword = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
 
       try {
-        
+
         // TODO: do stuff to get the $results which is an associative array
-        $host = "127.0.0.1";
-        $dbname = "dashboard";
-        $username = "jahenderson";
-        $password = "";
-    
+        $dbname = 'heroku_2f5d071b652d3b7'
+        $host = 'us-cdbr-iron-east-02.cleardb.net';
+        $username = 'b5f872661c80e1';
+        $password = '4cb4913a';
+
         // Get Data from DB
         $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-  
-        $sql = "INSERT INTO user (email, password) " .
-               "VALUES (:email, :hashedPassword) ";
-        
+        $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "INSERT INTO users (user_email, user_password, user_role) " .
+               "VALUES (:email, :hashedPassword, 'user') ";
+
         $stmt = $dbConn->prepare($sql);
         $stmt->execute(array (
-          ":email" => $_POST['email'],
+          ":email" => $_POST['user_email'],
           ":hashedPassword" => $hashedPassword));
-        
-        $_SESSION["email"] = $record["email"];
-        $_SESSION["isAdmin"] = false;
-  
+
+        $_SESSION["user_email"] = $record["user_email"];
+        $_SESSION["user_role"] = $record["user_role"];
+
         // Sending back down as JSON
         echo json_encode(array("isSignedUp" => true));
-  
+
       } catch (PDOException $ex) {
         switch ($ex->getCode()) {
           case "23000":
             echo json_encode(array(
-              "isSignedUp" => false, 
+              "isSignedUp" => false,
               "message"=> "email taken, try another",
               "details" => $ex->getMessage()));
             break;
           default:
             echo json_encode(array(
-              "isSignedUp" => false, 
+              "isSignedUp" => false,
               "message"=> $ex->getMessage(),
               "details" => $ex->getMessage()));
             break;
