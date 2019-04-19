@@ -42,7 +42,9 @@
 
       $record = $stmt->fetch();
 
-      $isAuthenticated = password_verify($_POST["password"], $record["password"]);
+      $hash = $record['user_password'];
+      $pass = $_POST['password'];
+      $isAuthenticated = password_verify($pass, $hash);
 
       if ($isAuthenticated) {
         $_SESSION["user_email"] = $record["user_email"];
@@ -54,7 +56,18 @@
       // Let the client know the format of the data being returned
       header("Content-Type: application/json");
 
-      // Sending back down as JSON
+      // // Sending back down as JSON
+      // //***********************************************************************************
+      // $record['formPass'] = $_POST['password'];
+      // $options = [
+      //   'cost' => 11,
+      //   ];
+      // $record['formPassE'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
+    
+      // // $record['isAuth'] = $isAuthenticated;
+      // $record['DBPass'] = $record['user_password'];
+      // echo json_encode($record);
+      // //***********************************************************************************
       echo json_encode(array("isAuthenticated" => $isAuthenticated));
 
       break;

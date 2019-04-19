@@ -11,11 +11,12 @@
         <title>Right Review Login</title>
 
         <!-- Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
         <!--<link href="css/simple-line-icons.css" rel="stylesheet">-->
 
-        <!-- Main styles for this application -->
+         <!--Main styles for this application -->
         <!--<link href="css/style.min.css" rel="stylesheet">-->
 
         <!-- Styles required by this views -->
@@ -30,11 +31,17 @@
             .open-hidden {
                 display: none;
             }
+            #projectLogo {
+                width: 400px;
+            }
         </style>
     </head>
 
     <body>
         <main class="d-flex align-items-center justify-content-center">
+            <div>
+                <img id='projectLogo' src="img/rightReviewLogo/dark_logo_white_background.jpg"></img>
+            </div>
             <div class="card">
                 <div class="card-body p-4">
                     <h1>Login</h1>
@@ -49,7 +56,8 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-lock"></i></span>
+                                <!--<span class="input-group-text"><i class="icon-lock"></i></span>-->
+                                <span class="input-group-text"><i style="font-size:24px" class="fa">&#xf023;</i></span>
                             </div>
                             <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
@@ -88,13 +96,13 @@
                         "password": $("input[name='password']").val(),
                     },
                     success: function(data, status) {
-                        console.log(data);
-                        // if (data.isAuthenticated) {
-                        //     window.location = "index.php"
-                        // } else {
-                        //     $("#message").html("Bad email or password");
-                        //     $("#message").removeClass("open-hidden");
-                        // }
+                        // console.log(data);
+                        if (data.isAuthenticated) {
+                            window.location = "index.php"
+                        } else {
+                            $("#message").html("Bad email or password");
+                            $("#message").removeClass("open-hidden");
+                        }
                     },
                     error: function(error) { //optional, used for debugging purposes
                         console.log(error['responseText']);
