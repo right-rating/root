@@ -2,7 +2,7 @@
 // database config text
 // mysql://b5f872661c80e1:4cb4913a@us-cdbr-iron-east-02.cleardb.net/heroku_2f5d071b652d3b7?reconnect=true
 function getDBConn() {
-    $dbname = 'heroku_2f5d071b652d3b7'
+    $dbname = 'heroku_2f5d071b652d3b7';
     $host = 'us-cdbr-iron-east-02.cleardb.net';
     $username = 'b5f872661c80e1';
     $password = '4cb4913a';
