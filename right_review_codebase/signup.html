@@ -12,11 +12,19 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<<<<<<< HEAD
     <!-- <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/simple-line-icons.css" rel="stylesheet"> -->
 
     <!-- Main styles for this application -->
     <!-- <link href="css/style.min.css" rel="stylesheet"> -->
+=======
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Main styles for this application -->
+    <link href="css/style.min.css" rel="stylesheet">
+>>>>>>> e047563fd23c2b59bff7acfcd036817f323e69a5
 
     <!-- Styles required by this views -->
     <style>
@@ -74,8 +82,11 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
     
     <div id='error'></div>
+=======
+>>>>>>> e047563fd23c2b59bff7acfcd036817f323e69a5
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -84,8 +95,13 @@
     <script>
         $("#signupButton").on('click', function(e) {
             $.ajax({
+<<<<<<< HEAD
                 type: "POST",
                 url: "api/signup.php",
+=======
+                type: "post",
+                url: "signup.php",
+>>>>>>> e047563fd23c2b59bff7acfcd036817f323e69a5
                 dataType: "json",
                 data: {
                     "email": $("input[name='email']").val(),
@@ -95,16 +111,25 @@
                 success: function(data, status) {
                     console.log(data);
                     if (data.isSignedUp) {
+<<<<<<< HEAD
                         window.location = "index.php";
+=======
+                        window.location = "index.php"
+>>>>>>> e047563fd23c2b59bff7acfcd036817f323e69a5
                     }
                     else {
                         $("#message").html("Error: " + data.message);
                         $("#message").removeClass("open-hidden");
                     }
                 },
+<<<<<<< HEAD
                 error: function(error) {
                     console.log(error['responseText']);
                     $('#error').html(error['responseText'])
+=======
+                error: function() { 
+                    console.log(arguments)
+>>>>>>> e047563fd23c2b59bff7acfcd036817f323e69a5
                 },
                 complete: function(data, status) { //optional, used for debugging purposes
                     //console.log(status);
@@ -114,4 +139,8 @@
     </script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> e047563fd23c2b59bff7acfcd036817f323e69a5

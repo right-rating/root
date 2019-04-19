@@ -41,8 +41,8 @@
       $stmt->execute(array (":email" => $_POST['email']));
 
       $record = $stmt->fetch();
-      
-      // $isAuthenticated = password_verify($_POST["password"], $record["user_password"]);
+
+      $isAuthenticated = password_verify($_POST["password"], $record["password"]);
 
       if ($isAuthenticated) {
         $_SESSION["user_email"] = $record["user_email"];
