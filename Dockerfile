@@ -6,8 +6,8 @@
 #Define default port
    EXPOSE 80
 
-   COPY . /var/www/html/
-
+   COPY ./right_review_codebase /var/www/html/
+   RUN rm /var/www/html/index.html
    ENTRYPOINT [ "/usr/sbin/apache2ctl" ]
 
 #Define default command
