@@ -4,7 +4,11 @@
  ?>
 </head>
 <body>
-<?php include "pagetools/page-top.php" ?>
+<?php
+
+include "pagetools/page-top.php"
+
+?>
 
   <form class="" action="index.html" method="post">
     <label for="item_name">Website Name</label>
@@ -16,3 +20,6 @@
     <!-- item_id and date_created generated automatically -->
   </form>
 </body>
+<script type="text/javascript"src="js/add_item.js">
+
+</script>
