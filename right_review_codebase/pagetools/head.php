@@ -1,4 +1,2 @@
-<head>
-  <link rel="stylesheet" href="/css/style.css">
-  <title>Title Works</title>
-</head>
+<link rel="stylesheet" href="/css/style.css">
+<title>Title Works</title>
