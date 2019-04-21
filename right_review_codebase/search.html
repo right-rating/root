@@ -8,6 +8,8 @@
 
 <body>
     <header>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,6 +21,11 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <!--<link href="css/style.css" rel="stylesheet">-->
+
+        <!--AG grid for Listings-->
+        <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+        <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 
     </header>
 
@@ -46,14 +53,66 @@
     </form>
 
     <main>
+        <div id="itemGrid" style="height: 600px;width:500px;" class="ag-theme-balham"></div>
 
+        <script>
+            $(document).ready(function() {
+                console.log("on ready");
+                // specify the columns
+                var columnDefs = [
+                    { headerName: "Website URL", field: "name" },
+                    { headerName: "Description", field: "description" },
+                    { headerName: "Rating", field: "rating" }
+                ];
+
+                $.ajax({
+                    type: "GET",
+                    url: "api/search.php",
+                    dataType: "json",
+                    data: {},
+                    success: function(data, status) {
+                        console.log("ajax call success");
+                        console.log(data);
+
+                        var rowData = [];
+                        // specify the data
+                        for (var idx in data) {
+                            console.log(data[idx]);
+
+                            var rowElem = {
+                                name: data[idx]['item_name'],
+                                description: data[idx]['item_description'],
+                                rating: 5
+                            };
+
+                            rowData.push(rowElem);
+                        }
+
+                        // let the grid know which columns and what data to use
+                        var gridOptions = {
+                            columnDefs: columnDefs,
+                            rowData: rowData
+                        };
+
+                        // lookup the container we want the Grid to use
+                        var eGridDiv = document.querySelector('#itemGrid');
+
+                        // create the grid passing in the div to use together with the columns & data we want to use
+                        new agGrid.Grid(eGridDiv, gridOptions);
+
+                    }
+                }); //ajax call
+            }); //on ready
+        </script>
 
 
 
     </main>
 
     <footer></footer>
-
+    <script>
+        // on click of an Item, send ItemID
+    </script>
 </body>
 
 </html>
