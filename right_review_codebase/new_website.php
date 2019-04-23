@@ -1,12 +1,12 @@
 <head>
 <?php
-  include "pagetools/head.php"
+  include "pagetools/head.php";
  ?>
 </head>
 <body>
 <?php
-
-include "pagetools/page-top.php"
+  $page="new_webpage";
+include "pagetools/page-top.php";
 
 ?>
 
@@ -17,6 +17,7 @@ include "pagetools/page-top.php"
     <input type="text" name="Description" value=""></input>
     <label for="item_image">Image URL:</label>
     <input type="text" name="item_image" value=""></input>
+    <button type="button" name="submit" id="submit_webpage">Submit Website</button>
     <!-- item_id and date_created generated automatically -->
   </form>
 </body>

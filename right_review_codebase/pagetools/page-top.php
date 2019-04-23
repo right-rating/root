@@ -6,11 +6,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 </header>
 
@@ -25,9 +25,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Add a Website</a>
+            <li class="nav-item nav_to_new_webpage">
+                <a class="nav-link" href="/new_website.php">Add a Website</a>
             </li>
         </ul>
     </div>
 </nav>
+<input type="hidden" name="active_page" value="<?php echo $page ?>">
+<script type="text/javascript" src="/js/scripts_for_head.js">
+
+</script>
