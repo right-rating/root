@@ -14,7 +14,7 @@ include "pagetools/page-top.php";
     <label for="item_name">Website Name</label>
     <input type="text" name="item_name" value=""></input>
     <label for="Description"> Description </label>
-    <input type="text" name="Description" value=""></input>
+    <textarea name="Description" value=""></textarea>
     <label for="item_image">Image URL:</label>
     <input type="text" name="item_image" value=""></input>
     <button type="button" name="submit" id="submit_webpage">Submit Website</button>

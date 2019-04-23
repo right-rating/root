@@ -1,4 +1,5 @@
 <?php
+  include_once "db_actions.php";
   session_start();
 
     $httpMethod = strtoupper($_SERVER['REQUEST_METHOD']);
@@ -14,11 +15,23 @@
       case "GET":
         // Allow any client to access
         header("Access-Control-Allow-Origin: *");
+        add_entry(
+          $type = $_GET["type"],
+          $name = $_GET["item_name"],
+          $description = $_GET["description"],
+          $image = $_GET["item_image"]
+        );
           var_dump($_GET);
         break;
       case 'POST':
         // Allow any client to access
         header("Access-Control-Allow-Origin: *");
+        add_entry(
+          $type = $_POST["type"],
+          $name = $_POST["item_name"],
+          $description = $_POST["description"],
+          $image = $_POST["item_image"]
+        );
           var_dump($_POST);
         break;
       case 'PUT':

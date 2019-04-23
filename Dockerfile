@@ -1,6 +1,7 @@
 #Pull base image
    FROM php:apache
    #Set up php
+   RUN docker-php-ext-install pdo pdo_mysql
    #RUN apt-get update -y && apt-get install apache2 apache2-utils -y
    SHELL ["/bin/bash", "-c"]
    RUN ln -s ../mods-available/{expires,headers,rewrite}.load /etc/apache2/mods-enabled/
