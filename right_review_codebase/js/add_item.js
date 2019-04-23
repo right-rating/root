@@ -2,6 +2,25 @@ $(document).ready(function() {
   console.log("And we have scripts");
   function submit_page()
   {
+            $.ajax({
+                type: "post",
+                url: "/api/submit_new_entry.php",
+                dataType: "json",
+                data: {
+                  type:"website",
+                  item_name:$("[name=item_name]").val(),
+                  description:$("[name=Description]").val(),
+                  item_image:$("[name=item_image]").val(),
+
+                },
+                success: function(data,status){
+
+                },
+                complete: function(data, status){
+
+                }
+            })
+
     /*
     <form class="" action="index.html" method="post">
       <label for="item_name">Website Name</label>
