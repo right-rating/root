@@ -82,7 +82,7 @@
                             var rowElem = {
                                 name: data[idx]['item_name'],
                                 description: data[idx]['item_description'],
-                                rating: 5
+                                rating: parseFloat(data[idx]['AVG(rating.rating_val)']).toFixed(2)
                             };
 
                             rowData.push(rowElem);
