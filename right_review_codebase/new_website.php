@@ -11,12 +11,32 @@ include "pagetools/page-top.php";
 ?>
 
   <form class="" action="index.html" method="post">
-    <label for="item_name">Website Name</label>
-    <input type="text" name="item_name" value=""></input>
-    <label for="Description"> Description </label>
-    <textarea name="Description" value=""></textarea>
-    <label for="item_image">Image URL:</label>
-    <input type="text" name="item_image" value=""></input>
+    <table>
+      <tr>
+        <td>
+          <label for="item_name">Website Name</label>
+        </td><td>
+          <input type="text" name="item_name" value=""></input>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <label for="item_image">Image URL:</label>
+        </td><td>
+        <input type="text" name="item_image" value=""></input>
+        </td>
+      <tr>
+      <tr>
+        <tr>
+          <td>
+            <label for="Description"> Description </label>
+            </td><td>
+            <textarea name="Description" value=""></textarea>
+          </td>
+        </tr>
+
+
+      </table>
     <button type="button" name="submit" id="submit_webpage">Submit Website</button>
     <!-- item_id and date_created generated automatically -->
   </form>
