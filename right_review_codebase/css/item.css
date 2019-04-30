@@ -11,3 +11,22 @@
 #itemName {
     margin-left: 5px
 }
+.ratingCategoryLogos {
+    width: 50px;
+    display: flex;
+    margin-left: 50px;
+}
+#ratingSubmissionButton {
+    margin-top: 5px;
+    margin-left: 0px;
+    background-color: green;
+    color: white;
+}
+.showRatingButton {
+    background-color: green;
+    color: white;
+}
+.hideRatingButton, .deleteRatingButton {
+    background-color: red;
+    color: white;
+}
