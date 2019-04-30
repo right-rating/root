@@ -30,15 +30,15 @@
             <img id="itemLogoImage" src=""></img>
             <h1 id="itemName"></h1>
             <p id="itemDescription"></p>
-            <table id="categoryRatingTotal">
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
+            
+            <h1>Average Ratings</h1>
+            <table id='categoryRatingTotal'></table>
         </div>
         
         <div class="container" style="margin-top:30px">
-            
+            <h1 id="userRoleTitle"></h1>
+            <table id='individualRatings'></table>
+            <button id='ratingSubmissionButton' onclick='submitRatingsInTable()'>Submit Rating</button>
         </div>
 
     </body>
