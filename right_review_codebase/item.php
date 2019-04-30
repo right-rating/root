@@ -2,7 +2,7 @@
     session_start();
 
     if (!isset($_SESSION['user_email']) || !isset($_SESSION['user_role'])){
-      header("Location: dashboard/login.html");
+      header("Location: login.html");
     }
     // if (!isset($_SESSION['item_id'])){
     //   header("Location: dashboard/login.html");

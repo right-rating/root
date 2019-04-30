@@ -128,8 +128,9 @@
                             'new_id' : selectedRowsString
                         },
                         success: function(data, status) {  
-                            //console.log("ID changed successful");
+                            console.log("ID changed successful");
                             //redirect
+                            self.location = "item.php";
                         
                         }
                     }); //ajax call

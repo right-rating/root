@@ -7,9 +7,9 @@
         case "GET":
         $_SESSION['item_id'] = $_GET['new_id'];
         
-        // var_dump($_SESSION['item_id']);
+        var_dump($_SESSION['item_id']);
         
-        header("Location: ../item.php");
+        // header("Location: ../item.php");
         
         break;  
         
