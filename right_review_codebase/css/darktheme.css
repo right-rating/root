@@ -1,0 +1,16 @@
+body {
+  background-color: black;
+  color: #FFFFFF;
+}
+.card {
+  background-color: #404040;
+  color:#FF3333;
+  text-align: center;
+}
+.text-muted {
+  color: #FFFFFF !important;
+}
+.text-secondary
+{
+  color: #FFFFFF !important;
+}
