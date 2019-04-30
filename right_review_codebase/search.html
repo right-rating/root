@@ -8,18 +8,24 @@
 
 <body>
     <header>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
-        <link href="css/style.css" rel="stylesheet">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+
+        <!--AG grid for Listings-->
+        <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+        <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 
     </header>
 
@@ -31,10 +37,10 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Add a Website</a>
                 </li>
             </ul>
@@ -47,14 +53,99 @@
     </form>
 
     <main>
+        <div id="itemGrid" style="height: 600px;width:500px;" class="ag-theme-balham"></div>
 
+        <script>
+            $(document).ready(function() {
+                console.log("on ready");
+                // specify the columns
+                var columnDefs = [
+                    { headerName: "Website URL", field: "name" },
+                    { headerName: "Description", field: "description" },
+                    { headerName: "Rating", field: "rating" },
+                    { headerName: "Website ID", field: "id" }
+                ];
+
+                // let the grid know which columns and what data to use
+                var gridOptions = {
+                    columnDefs: columnDefs,
+                    rowSelection: 'single',
+                    onSelectionChanged: onSelectionChanged
+                };
+                $.ajax({
+                    type: "GET",
+                    url: "api/search.php",
+                    dataType: "json",
+                    data: {},
+                    success: function(data, status) {
+                        console.log("ajax call success");
+                        console.log(data);
+
+                        var rowData = [];
+                        // specify the data
+                        for (var idx in data) {
+                            console.log(data[idx]);
+
+                            var rowElem = {
+                                id: data[idx]['item_id'],
+                                name: data[idx]['item_name'],
+                                description: data[idx]['item_description'],
+                                rating: parseFloat(data[idx]['AVG(rating.rating_val)']).toFixed(2)
+                            };
+
+                            rowData.push(rowElem);
+                        }
+
+
+                        // lookup the container we want the Grid to use
+                        var eGridDiv = document.querySelector('#itemGrid');
+
+                        // create the grid passing in the div to use together with the columns & data we want to use
+                        new agGrid.Grid(eGridDiv, gridOptions);
+
+                        gridOptions.api.setRowData(rowData);
+
+                    }
+                }); //ajax call
+
+                function onSelectionChanged() {
+                    var selectedRows = gridOptions.api.getSelectedRows();
+                    var selectedRowsString = '';
+                    selectedRows.forEach(function(selectedRow, index) {
+                        if (index !== 0) {
+                            selectedRowsString += ', ';
+                        }
+                        selectedRowsString += selectedRow.id;
+                    });
+                    console.log(selectedRowsString);
+
+
+                    //$_SESSION['item_id'] = selectedRowsString;
+                    $.ajax({
+                        type: "GET",
+                        url: "api/changeItemId.php",
+                        data: {
+                            'new_id' : selectedRowsString
+                        },
+                        success: function(data, status) {  
+                            //console.log("ID changed successful");
+                            //redirect
+                        
+                        }
+                    }); //ajax call
+
+                }
+            }); //on ready
+        </script>
 
 
 
     </main>
 
     <footer></footer>
-
+    <script>
+        // on click of an Item, send ItemID
+    </script>
 </body>
 
 </html>
