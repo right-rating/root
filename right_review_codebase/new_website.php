@@ -9,7 +9,8 @@
 include "pagetools/page-top.php";
 
 ?>
-
+<div class="card">
+  <div class="card-body">
   <form class="" action="index.html" method="post">
     <table>
       <tr>
@@ -39,8 +40,7 @@ include "pagetools/page-top.php";
       </table>
     <button type="button" name="submit" id="submit_webpage">Submit Website</button>
     <!-- item_id and date_created generated automatically -->
-  </form>
-</body>
-<script type="text/javascript"src="js/add_item.js">
+  </form> </div> </div> </body> <script
+  type="text/javascript"src="js/add_item.js">
 
 </script>
