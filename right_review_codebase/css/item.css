@@ -1,0 +1,13 @@
+#rightReviewLogo {
+    height: 100px;
+}
+#itemLogoImage {
+    height: 100px;
+    margin-left: 25px
+}
+#rightReviewLogo, #itemLogoImage, #itemName {
+    display: inline;
+}
+#itemName {
+    margin-left: 5px
+}
