@@ -62,9 +62,16 @@
                 var columnDefs = [
                     { headerName: "Website URL", field: "name" },
                     { headerName: "Description", field: "description" },
-                    { headerName: "Rating", field: "rating" }
+                    { headerName: "Rating", field: "rating" },
+                    { headerName: "Website ID", field: "id" }
                 ];
 
+                // let the grid know which columns and what data to use
+                var gridOptions = {
+                    columnDefs: columnDefs,
+                    rowSelection: 'single',
+                    onSelectionChanged: onSelectionChanged
+                };
                 $.ajax({
                     type: "GET",
                     url: "api/search.php",
@@ -80,6 +87,7 @@
                             console.log(data[idx]);
 
                             var rowElem = {
+                                id: data[idx]['item_id'],
                                 name: data[idx]['item_name'],
                                 description: data[idx]['item_description'],
                                 rating: parseFloat(data[idx]['AVG(rating.rating_val)']).toFixed(2)
@@ -88,11 +96,6 @@
                             rowData.push(rowElem);
                         }
 
-                        // let the grid know which columns and what data to use
-                        var gridOptions = {
-                            columnDefs: columnDefs,
-                            rowData: rowData
-                        };
 
                         // lookup the container we want the Grid to use
                         var eGridDiv = document.querySelector('#itemGrid');
@@ -100,8 +103,38 @@
                         // create the grid passing in the div to use together with the columns & data we want to use
                         new agGrid.Grid(eGridDiv, gridOptions);
 
+                        gridOptions.api.setRowData(rowData);
+
                     }
                 }); //ajax call
+
+                function onSelectionChanged() {
+                    var selectedRows = gridOptions.api.getSelectedRows();
+                    var selectedRowsString = '';
+                    selectedRows.forEach(function(selectedRow, index) {
+                        if (index !== 0) {
+                            selectedRowsString += ', ';
+                        }
+                        selectedRowsString += selectedRow.id;
+                    });
+                    console.log(selectedRowsString);
+
+
+                    //$_SESSION['item_id'] = selectedRowsString;
+                    $.ajax({
+                        type: "GET",
+                        url: "api/changeItemId.php",
+                        data: {
+                            'new_id' : selectedRowsString
+                        },
+                        success: function(data, status) {  
+                            //console.log("ID changed successful");
+                            //redirect
+                        
+                        }
+                    }); //ajax call
+
+                }
             }); //on ready
         </script>
 
