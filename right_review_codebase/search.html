@@ -47,12 +47,13 @@
         </div>
     </nav>
 
-    <form class="form-inline md-form mr-auto mb-4">
+    <div id="content" class="mx-auto text-center" style="width: 80%;">
+
+    <form class="form-inline md-form mr-auto mx-auto" style="width: 80%;">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
     </form>
 
-    <main>
         <div id="itemGrid" style="height: 600px;width:500px;" class="ag-theme-balham"></div>
 
         <script>
@@ -117,9 +118,7 @@
                         }
                         selectedRowsString += selectedRow.id;
                     });
-                    console.log(selectedRowsString);
-
-
+                    
                     //$_SESSION['item_id'] = selectedRowsString;
                     $.ajax({
                         type: "GET",
@@ -128,7 +127,6 @@
                             'new_id' : selectedRowsString
                         },
                         success: function(data, status) {  
-                            console.log("ID changed successful");
                             //redirect
                             self.location = "item.php";
                         
@@ -141,7 +139,7 @@
 
 
 
-    </main>
+    </div>
 
     <footer></footer>
     <script>
