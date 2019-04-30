@@ -40,10 +40,14 @@ textarea
   border-radius: .5em;
   width: 17em !important;
 }
-input
+input not(.input-group)
 {
   border-radius: .5em;
   width: 17em !important;;
+}
+.input-group
+{
+  width: 20em  !important;
 }
 button
 {
