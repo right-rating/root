@@ -30,3 +30,11 @@
     background-color: red;
     color: white;
 }
+#logoutButton {
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: 75px;
+    top: 75px;
+    font-size: 30px;
+}
