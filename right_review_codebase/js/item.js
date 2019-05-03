@@ -508,3 +508,10 @@ $("#logoutButton").on("click", function() {
     window.location = "api/logout.php";
 });
 //************************************************************************
+
+//BACK TO SEARCH PAGE BUTTON IS PRESSED
+//************************************************************************
+$("#backToSearchPageButton").on("click", function() {
+    window.location = "search.html";
+});
+//************************************************************************

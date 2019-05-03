@@ -29,6 +29,7 @@
             <img id="rightReviewLogo" src="img/rightReviewLogo/logo_transparent_background.png" alt="Right Review Logo"></img>
             <img id="itemLogoImage" src=""></img>
             <h1 id="itemName"></h1>
+            <button id="backToSearchPageButton">Back to Search Page</button>
             <button id="logoutButton">Logout</button>
             <p id="itemDescription"></p>
             
