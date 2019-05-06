@@ -1,6 +1,7 @@
 #Pull base image
    FROM php:apache
    #Set up php
+   RUN docker-php-ext-install pdo pdo_mysql
    #RUN apt-get update -y && apt-get install apache2 apache2-utils -y
    RUN docker-php-ext-install pdo_mysql
    SHELL ["/bin/bash", "-c"]

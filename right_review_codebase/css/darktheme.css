@@ -1,0 +1,55 @@
+body {
+  background-color: black;
+  color: #FFFFFF;
+}
+.card {
+  background-color: #404040;
+  color:#FF3333;
+  text-align: center;
+}
+.text-muted {
+  color: #FFFFFF !important;
+}
+.text-secondary
+{
+  color: #FFFFFF !important;
+}
+table {
+  width:min-content;
+}
+.card-body {
+  width:min-content;
+}
+.card
+{
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+td
+{
+  padding-left: 1em;
+  padding-right: 1em;
+}
+td
+{
+  padding-bottom: 1em;
+}
+textarea
+{
+  border-radius: .5em;
+  width: 17em !important;
+}
+input not(.input-group)
+{
+  border-radius: .5em;
+  width: 17em !important;;
+}
+.input-group
+{
+  width: 20em  !important;
+}
+button
+{
+  border-radius: 2em;
+}
