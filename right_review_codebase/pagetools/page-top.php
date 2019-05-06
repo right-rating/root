@@ -12,10 +12,18 @@
             <li class="nav-item nav_to_new_webpage">
                 <a class="nav-link" href="new_website.php">Add a Website</a>
             </li>
+            <li class="nav-item nav_to_logout logout">
+              Logout
+            </li>
         </ul>
     </div>
 </nav>
 <input type="hidden" name="active_page" value="<?php echo $page ?>">
 <script type="text/javascript" src="/js/scripts_for_head.js">
 
+</script>
+<script>
+    $(".logout").on("click", function() {
+        window.location = "api/logout.php";
+    })
 </script>
