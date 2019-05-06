@@ -4,12 +4,15 @@
 include 'DBConnection.php';
 $conn = getDBConn();
 
-$sql = 'SELECT * FROM rating_category 
-ORDER BY rating_category_id;';
+$np = array();
+$np[':item_id'] = $_GET['item_id'];
+
+$sql = 'SELECT item_name 
+        FROM item 
+        WHERE item_id = :item_id;';
 
 $stmt = $conn->prepare($sql);
-$stmt->execute();
+$stmt->execute($np);
 $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 echo json_encode($records);
 ?>

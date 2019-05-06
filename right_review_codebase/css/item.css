@@ -11,3 +11,39 @@
 #itemName {
     margin-left: 5px
 }
+.ratingCategoryLogos {
+    width: 50px;
+    display: flex;
+    margin-left: 50px;
+}
+#ratingSubmissionButton {
+    margin-top: 5px;
+    margin-left: 0px;
+    background-color: green;
+    color: white;
+}
+.showRatingButton {
+    background-color: green;
+    color: white;
+}
+.hideRatingButton, .deleteRatingButton {
+    background-color: red;
+    color: white;
+}
+#logoutButton {
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: 75px;
+    top: 75px;
+    font-size: 30px;
+}
+
+#backToSearchPageButton {
+    background-color: green;
+    color: white;
+    position: absolute;
+    right: 200px;
+    top: 75px;
+    font-size: 30px;
+}
