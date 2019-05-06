@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item nav_to_new_webpage">
-                <a class="nav-link" href="/new_website.php">Add a Website</a>
+                <a class="nav-link" href="new_website.php">Add a Website</a>
             </li>
         </ul>
     </div>
