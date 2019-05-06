@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Sample Google API </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+
+            //$_SESSION['item_id'] = selectedRowsString;
+            $.ajax({
+                type: "GET",
+                url: "googleSafeBrowsingApi.php",
+                dataType: 'json',
+                data: {
+                    'new_id': "hello_world"
+                },
+                success: function(data, status) {
+                    //redirect
+                    data = data['matches'];
+
+                    if (data == null || data == undefined) {
+                        console.log("SAFE: No malicious URL link is detected");
+                    }else {
+                        console.log(data[0]['threatType']);
+                    }
+
+                }
+            }); //ajax call
+        }); //on ready
+    </script>
+</body>
+
+</html>

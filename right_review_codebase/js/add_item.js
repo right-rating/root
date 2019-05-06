@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   function submit_page()
   {
             $.ajax({
@@ -13,7 +14,7 @@ $(document).ready(function() {
 
                 },
                 success: function(data,status){
-                  //WindowClient.navigate("/")
+
                 },
                 complete: function(data, status){
 
@@ -22,4 +23,5 @@ $(document).ready(function() {
 
   };
   $("#submit_webpage").click(submit_page);
+
 });

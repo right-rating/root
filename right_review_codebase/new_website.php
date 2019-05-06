@@ -4,12 +4,12 @@
  ?>
 </head>
 <body>
+
 <?php
   $page="new_webpage";
 include "pagetools/page-top.php";
 
 ?>
-
   <form class="" action="index.html" method="post">
     <table>
       <tr>

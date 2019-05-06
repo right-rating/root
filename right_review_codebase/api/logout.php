@@ -3,13 +3,15 @@
 
     //remove PHPSESSID from browser
     if ( isset( $_COOKIE[session_name()] ) )
-    setcookie( session_name(), “”, time()-3600, “/” );
-    
+    {
+      setcookie( session_name(), "", time()-3600, "/" );
+      setcookie( "status", "logged_out", 0, "/");
+    }
     //clear session from globals
     $_SESSION = array();
-    
+
     //clear session from disk
     session_destroy();
-    
-    header("Location: ../rightReviewInitial.html");
+    $ref="/";
+    echo '<script>window.location = "'.$ref.'";</script>';
 ?>
