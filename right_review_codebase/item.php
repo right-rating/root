@@ -2,7 +2,7 @@
     session_start();
 
     if (!isset($_SESSION['user_email']) || !isset($_SESSION['user_role'])){
-      header("Location: dashboard/login.html");
+      header("Location: login.html");
     }
     // if (!isset($_SESSION['item_id'])){
     //   header("Location: dashboard/login.html");
@@ -29,16 +29,18 @@
             <img id="rightReviewLogo" src="img/rightReviewLogo/logo_transparent_background.png" alt="Right Review Logo"></img>
             <img id="itemLogoImage" src=""></img>
             <h1 id="itemName"></h1>
+            <button id="backToSearchPageButton">Back to Search Page</button>
+            <button id="logoutButton">Logout</button>
             <p id="itemDescription"></p>
-            <table id="categoryRatingTotal">
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
+            
+            <h1>Average Ratings</h1>
+            <table id='categoryRatingTotal'></table>
         </div>
         
         <div class="container" style="margin-top:30px">
-            
+            <h1 id="userRoleTitle"></h1>
+            <table id='individualRatings'></table>
+            <button id='ratingSubmissionButton' onclick='submitRatingsInTable()'>Submit Rating</button>
         </div>
 
     </body>
