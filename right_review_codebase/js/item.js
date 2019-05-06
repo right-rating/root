@@ -1,11 +1,25 @@
 //global vars
-var item_id = 12;
-
+var item_id;
 
 //RUNS ON LOAD OF PAGE
 //************************************************************************
 $(document).ready(function() {
-    loadPage(item_id);
+    $.ajax({
+        type: "get",
+        url: "api/getSession.php",
+        dataType: "json",
+        success: function(data, status) {
+            item_id = data['item_id'];
+            loadPage(data['item_id']);
+        },
+        error: function(error) {
+            console.log(error);
+            $('#error').html(error['responseText']);
+        },
+        complete: function(data, status) {
+            //console.log(status);
+        },
+    });
 });
 //************************************************************************
 
@@ -486,4 +500,18 @@ function loadPage(item_id) {
     //get category rating info
     fillRatingCategoryInfo(item_id);
 }
+//************************************************************************
+
+//LOGOUT BUTTON IS PRESSED
+//************************************************************************
+$("#logoutButton").on("click", function() {
+    window.location = "api/logout.php";
+});
+//************************************************************************
+
+//BACK TO SEARCH PAGE BUTTON IS PRESSED
+//************************************************************************
+$("#backToSearchPageButton").on("click", function() {
+    window.location = "search.html";
+});
 //************************************************************************

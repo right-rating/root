@@ -30,3 +30,20 @@
     background-color: red;
     color: white;
 }
+#logoutButton {
+    background-color: red;
+    color: white;
+    position: absolute;
+    right: 75px;
+    top: 75px;
+    font-size: 30px;
+}
+
+#backToSearchPageButton {
+    background-color: green;
+    color: white;
+    position: absolute;
+    right: 200px;
+    top: 75px;
+    font-size: 30px;
+}
