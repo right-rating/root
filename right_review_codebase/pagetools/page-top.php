@@ -6,8 +6,11 @@
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item nav_to_home">
                 <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item nav_to_search">
+                <a class="nav-link" href="search.html">Search<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item nav_to_new_webpage">
                 <a class="nav-link" href="new_website.php">Add a Website</a>
