@@ -21,7 +21,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <!-- Material Design Bootstrap -->
@@ -29,21 +29,23 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/js/mdb.min.js"></script>
     </head>
-    
+
     <body>
+      <?php
+        $page = "new_item";
+        include "pagetools/page-top.php";
+       ?>
         <div class="jumbotron text-left" style="margin-bottom:0">
             <img id="rightReviewLogo" src="img/rightReviewLogo/logo_transparent_background.png" alt="Right Review Logo"></img>
             <img id="itemLogoImage" src=""></img>
             <div id="warningMsg"></div>
             <h1 id="itemName"></h1>
-            <button id="backToSearchPageButton">Back to Search Page</button>
-            <button id="logoutButton">Logout</button>
             <p id="itemDescription"></p>
-            
+
             <h1>Average Ratings</h1>
             <table id='categoryRatingTotal'></table>
         </div>
-        
+
         <div class="container" style="margin-top:30px">
             <h1 id="userRoleTitle"></h1>
             <table id='individualRatings'></table>
@@ -51,7 +53,7 @@
         </div>
 
     </body>
-    
+
     <div id='error'></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

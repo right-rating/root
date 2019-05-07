@@ -35,7 +35,7 @@ function fillItemInfo(itemId) {
         },
         success: function(data, status) {
             // console.log(data);
-            
+
             //fill in information about item selected
             var item = data[0];
             $('#pageTitle').html(item['item_name'] + " Review Page");
@@ -73,7 +73,7 @@ function fillRatingCategoryInfo(itemId) {
                     data: {
                         'rating_category_id' : data[i]['rating_category_id'],
                         'item_id' : item_id,
-                    },                
+                    },
                     success: function(data, status) {
                         // console.log(data);
                         $('#categoryRatingTotal').append("<tr>");
@@ -81,7 +81,7 @@ function fillRatingCategoryInfo(itemId) {
                         $('#categoryRatingTotal').append("<td>" + data[0]['rating_category_name'] + "</td>");
                         $('#categoryRatingTotal').append("<td>" + Math.round( data[0]['AVG(rating.rating_val)'] * 10 ) / 10 + "/5</td>");
                         $('#categoryRatingTotal').append("</tr>");
-                    },                
+                    },
                     error: function(error) {
                           console.log(error);
                           $('#error').html(error['responseText']);
@@ -113,7 +113,7 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
     if (user_role == "user") {
         //set user role title part
         $('#userRoleTitle').html("Rate This Website (1-5)");
-        
+
         //allow submission button to be shown
         $('#ratingSubmissionButton').show();
         //get all categories to display rating in each
@@ -142,7 +142,7 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
     else if (user_role == "moderator") {
         //set user role title part
         $('#userRoleTitle').html("Moderator Rating Hiding Feature");
-        
+
         //get all rating for moderator to hide/unhide
         $.ajax({
             type: "get",
@@ -153,7 +153,7 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
             },
             success: function(data, status) {
                 // console.log(data);
-                
+
                 //add all items to table
                 var individualRatingsString = "";
                 individualRatingsString += "<tr>";
@@ -165,19 +165,19 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
                 individualRatingsString += "</tr>";
                 for (var i = 0; i < data.length; i++) {
                     individualRatingsString += "<tr>";
-                    
+
                     //is rating hidden or no
                     if (data[i]['rating_hidden'] == 1) individualRatingsString += "<td><button class='showRatingButton' rating_id='" + data[i]['rating_id'] + "' item_id='" + data[i]['item_id'] + "'>Show Rating</button></td>";
                     else individualRatingsString += "<td><button class='hideRatingButton' rating_id='" + data[i]['rating_id'] + "' item_id='" + data[i]['item_id'] + "'>Hide Rating</button></td>";
-                    
+
                     individualRatingsString += "<td>" + data[i]['user_email'] + "</td>";
                     individualRatingsString += "<td>" + data[i]['rating_category_name'] + "</td>";
                     individualRatingsString += "<td>" + data[i]['rating_val'] + "/5</td>";
-                    
+
                     //display hidden
                     if (data[i]['rating_hidden'] == 1) individualRatingsString += "<td>Yes</td>";
                     else individualRatingsString += "<td>No</td>";
-                    
+
                     individualRatingsString += "</tr>";
                 }
                 $('#individualRatings').html(individualRatingsString);
@@ -194,7 +194,7 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
     else if (user_role == "admin") {
         //set user role title part
         $('#userRoleTitle').html("Administrator Rating Deletion Feature");
-        
+
         //get all rating for moderator to hide/unhide
         $.ajax({
             type: "get",
@@ -205,7 +205,7 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
             },
             success: function(data, status) {
                 // console.log(data);
-                
+
                 //add all items to table
                 var individualRatingsString = "";
                 individualRatingsString += "<tr>";
@@ -218,15 +218,15 @@ function fillIndividualRatings(itemId, user_role, user_email, user_id) {
                 for (var i = 0; i < data.length; i++) {
                     individualRatingsString += "<tr>";
                     individualRatingsString += "<td><button class='deleteRatingButton' rating_id='" + data[i]['rating_id'] + "' item_id='" + data[i]['item_id'] + "'>Delete Rating</button></td>";
-                    
+
                     individualRatingsString += "<td>" + data[i]['user_email'] + "</td>";
                     individualRatingsString += "<td>" + data[i]['rating_category_name'] + "</td>";
                     individualRatingsString += "<td>" + data[i]['rating_val'] + "/5</td>";
-                    
+
                     //display hidden
                     if (data[i]['rating_hidden'] == 1) individualRatingsString += "<td>Yes</td>";
                     else individualRatingsString += "<td>No</td>";
-                    
+
                     individualRatingsString += "</tr>";
                 }
                 $('#individualRatings').html(individualRatingsString);
@@ -256,7 +256,7 @@ function addRowToRatingsUser(user_id, item_id, rating_category_id, rating_catego
         },
         success: function(data, status) {
             // console.log(data);
-            
+
             //fill select boxes with info to be used on submission
             if (data.length > 0) {
                 // console.log('there is data');
@@ -272,7 +272,7 @@ function addRowToRatingsUser(user_id, item_id, rating_category_id, rating_catego
                 individualRatingsString += "</select></td>";
                 individualRatingsString += "</tr>";
                 $('#individualRatings').append(individualRatingsString);
-                
+
             }
             else {
                 // console.log('nope');
@@ -287,7 +287,7 @@ function addRowToRatingsUser(user_id, item_id, rating_category_id, rating_catego
                 individualRatingsString += "</tr>";
                 $('#individualRatings').append(individualRatingsString);
             }
-            
+
         },
         error: function(error) {
             console.log(error);
@@ -303,7 +303,7 @@ function addRowToRatingsUser(user_id, item_id, rating_category_id, rating_catego
 $(document).on('click', '.hideRatingButton', function() {
     var item_id = $(this).attr('item_id');
     var rating_id = $(this).attr('rating_id');
-    
+
     //hide rating and reload page
     $.ajax({
         type: "post",
@@ -329,7 +329,7 @@ $(document).on('click', '.hideRatingButton', function() {
 $(document).on('click', '.showRatingButton', function() {
     var item_id = $(this).attr('item_id');
     var rating_id = $(this).attr('rating_id');
-    
+
     //show rating and reload page
     $.ajax({
         type: "post",
@@ -356,7 +356,7 @@ $(document).on('click', '.showRatingButton', function() {
 $(document).on('click', '.deleteRatingButton', function() {
     var item_id = $(this).attr('item_id');
     var rating_id = $(this).attr('rating_id');
-    
+
     //hide rating and reload page
     $.ajax({
         type: "post",
@@ -410,21 +410,21 @@ function submitRatingsInTable() {
 //add, deletes, and updates ratings in the rating table (also refreshes page after each change to rating table)
 function addDeleteUpdateRating(operation, rating_id, rating_val, rating_category_id, item_id, user_id) {
     // console.log("operation: " + operation);
-    
+
     //convert inputs to ints
     rating_id = parseInt(rating_id);
     rating_val = parseInt(rating_val);
     rating_category_id = parseInt(rating_category_id);
     item_id = parseInt(item_id);
     user_id = parseInt(user_id);
-    
-    //print inputs 
+
+    //print inputs
     // console.log("rating_id: " + rating_id);
     // console.log("rating_val: " + rating_val);
     // console.log("rating_category_id: " + rating_category_id);
     // console.log("item_id: " + item_id);
     // console.log("user_id: " + user_id);
-    
+
     //make ajax call with info to change rating table
     $.ajax({
         type: "post",
@@ -449,7 +449,7 @@ function addDeleteUpdateRating(operation, rating_id, rating_val, rating_category
             //console.log(status);
         },
     });
-    
+
 }
 //************************************************************************
 
@@ -511,7 +511,9 @@ $("#logoutButton").on("click", function() {
 
 //BACK TO SEARCH PAGE BUTTON IS PRESSED
 //************************************************************************
+/*
 $("#backToSearchPageButton").on("click", function() {
-    window.location = "search.html";
+    window.location = "search.php";
 });
+*/
 //************************************************************************
