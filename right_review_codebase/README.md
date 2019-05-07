@@ -4,7 +4,7 @@ Right Revieew is our website to provide "right" ways to rate an website.
 
 ## Description
 
-Use the google slide [link](https://pip.pypa.io/en/stable/) provided to access our documentation.
+Use the google slide [link](https://docs.google.com/presentation/d/1gO5CTi_X3MIFnX10SDmEVu8EhUyaWRqU0mALMeXKmeE/edit?usp=sharing) provided to access our documentation.
 
 ## Contribution
 [Juhi Park](https://github.com/juhipark)
