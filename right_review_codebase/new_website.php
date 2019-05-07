@@ -4,12 +4,12 @@
  ?>
 </head>
 <body>
-
-<?php
-  $page="new_webpage";
-include "pagetools/page-top.php";
-
-?>
+    <?php
+      $page = "new_webpage";
+      include "pagetools/page-top.php";
+     ?>
+<div class="card">
+  <div class="card-body">
   <form class="" action="index.html" method="post">
     <table>
       <tr>
@@ -40,6 +40,7 @@ include "pagetools/page-top.php";
     <button type="button" name="submit" id="submit_webpage">Submit Website</button>
     <!-- item_id and date_created generated automatically -->
   </form>
+</div></div>
 </body>
 <script type="text/javascript"src="js/add_item.js">
 
