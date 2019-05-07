@@ -29,25 +29,10 @@
         <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 
     </header>
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="new_website.php">Add a Website</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+<?php
+  $page = "search";
+  include "pagetools/page-top.php";
+ ?>
 
     <form class="form-inline md-form mr-auto mx-auto" style="width: 80%;">
         <input id="searchBarId" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -120,7 +105,7 @@
                     columnDefs: columnDefs,
                     rowSelection: 'single',
                     onSelectionChanged: onSelectionChanged,
-                
+
                 };
 
                 function sizeToFit() {
@@ -137,7 +122,7 @@
                         var rowData = [];
                         // specify the data
                         for (var idx in data) {
-                            
+
                             var rowElem = {
                                 id: data[idx]['item_id'],
                                 name: data[idx]['item_name'],

@@ -75,7 +75,7 @@
             </div>
         </main>
     </body>
-    
+
     <div id='error'></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -84,7 +84,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            
+
             //runs when login button in pressed
             $("#loginButton").on('click', function(e) {
                 $.ajax({
@@ -98,7 +98,7 @@
                     success: function(data, status) {
                         // console.log(data);
                         if (data.isAuthenticated) {
-                            window.location = "search.html"
+                            window.location = "search.php"
                         } else {
                             $("#message").html("Bad email or password");
                             $("#message").removeClass("open-hidden");

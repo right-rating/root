@@ -83,7 +83,7 @@
             </div>
         </div>
     </main>
-    
+
     <div id='error'></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -104,7 +104,7 @@
                 success: function(data, status) {
                     // console.log(data);
                     if (data.isSignedUp) {
-                        window.location = "search.html";
+                        window.location = "search.php";
                     }
                     else {
                         $("#message").html("Error: " + data.message);
