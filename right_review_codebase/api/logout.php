@@ -12,6 +12,6 @@
 
     //clear session from disk
     session_destroy();
-    $ref="../";
+    $ref="../index.php";
     echo '<script>window.location = "'.$ref.'";</script>';
 ?>

@@ -39,7 +39,9 @@
       </table>
     <button type="button" name="submit" id="submit_webpage">Submit Website</button>
     <!-- item_id and date_created generated automatically -->
-  </form> </div> </div> </body> <script
-  type="text/javascript"src="js/add_item.js">
+  </form>
+</div></div>
+</body>
+<script type="text/javascript"src="js/add_item.js">
 
 </script>
