@@ -1,6 +1,6 @@
 # Final Project - Right Review
 
-Right Revieew is our website to provide "right" ways to rate an website.
+Right Review is our website to provide "right" ways to rate an website.
 
 ## Description
 
