@@ -13,7 +13,9 @@
                 <a class="nav-link" href="new_website.php">Add a Website</a>
             </li>
             <li class="nav-item nav_to_logout logout">
-              Logout
+              <button class="logout">
+                Logout
+              </button>
             </li>
         </ul>
     </div>
