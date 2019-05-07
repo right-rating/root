@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="#">Menu</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,11 +7,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-<<<<<<< HEAD
                 <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-=======
-                <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
->>>>>>> master
             </li>
             <li class="nav-item nav_to_new_webpage">
                 <a class="nav-link" href="new_website.php">Add a Website</a>
