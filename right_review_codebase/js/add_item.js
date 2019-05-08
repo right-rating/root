@@ -4,7 +4,7 @@ $(document).ready(function() {
   {
             $.ajax({
                 type: "post",
-                url: "/api/submit_new_entry.php",
+                url: "api/submit_new_entry.php",
                 dataType: "json",
                 data: {
                   type:"website",
