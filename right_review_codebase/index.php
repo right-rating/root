@@ -31,6 +31,9 @@
           <li class="nav-item">
             <a class="nav-link" href="signup.html">Signup</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search.php">Search</a>
+          </li>
         </ul>
       </div>
     </nav>
