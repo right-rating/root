@@ -21,7 +21,6 @@
           $description = $_GET["description"],
           $image = $_GET["item_image"]
         );
-          var_dump($_GET);
         break;
       case 'POST':
         // Allow any client to access
@@ -32,7 +31,6 @@
           $description = $_POST["description"],
           $image = $_POST["item_image"]
         );
-          var_dump($_POST);
         break;
       case 'PUT':
         header("Access-Control-Allow-Origin: *");
