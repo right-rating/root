@@ -12,11 +12,11 @@ crossorigin="anonymous"></script>
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 <!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
-<link href="/css/mdb.min.css" rel="stylesheet">
+<link href="css/mdb.min.css" rel="stylesheet">
 <!-- Your custom styles (optional) -->
-<link href="/css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
-<link rel="stylesheet" href="/css/darktheme.css">
+<link rel="stylesheet" href="css/darktheme.css">
 
