@@ -8,7 +8,7 @@
       $page = "new_webpage";
       include "pagetools/page-top.php";
      ?>
-<div class="card">
+<div class="holder">
   <div class="card-body">
   <form class="" action="index.html" method="post">
     <table>

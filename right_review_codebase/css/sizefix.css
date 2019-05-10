@@ -1,5 +1,5 @@
 
-.card {
+.holder {
   text-align: center;
 }
 table {
@@ -8,11 +8,10 @@ table {
 .card-body {
   width:min-content;
 }
-.card
+.holder
 {
-  width: min-content;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 td
 {
