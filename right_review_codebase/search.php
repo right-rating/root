@@ -36,7 +36,7 @@
 
     <form class="form-inline md-form mr-auto mx-auto" style="width: 80%;">
         <input id="searchBarId" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning btn-rounded" type="submit">Search</button>
+        <!--<button class="btn btn-outline-warning btn-rounded" type="submit">Search</button>-->
     </form>
 
     <div id="itemGridcontent" class="mx-auto text-center" style="width: 80%;">
