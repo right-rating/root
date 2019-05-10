@@ -2,16 +2,15 @@
 .holder {
   text-align: center;
 }
-table {
-  width:min-content;
-}
-.card-body {
-  width:min-content;
+
+.inputcol {
+  width: 100%;
 }
 .holder
 {
   margin-left: 10%;
   margin-right: 10%;
+  padding-top: 1em;
 }
 td
 {
@@ -25,7 +24,7 @@ td
 textarea
 {
   border-radius: .5em;
-  width: 17em !important;
+  min-width: 17em !important;
 }
 input not(.input-group)
 {
