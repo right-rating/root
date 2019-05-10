@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   function submit_page()
   {
             $.ajax({
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
                 },
                 complete: function(data, status){
-
+                  window.location = "search.php"
                 }
             })
 
