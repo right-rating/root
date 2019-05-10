@@ -17,6 +17,4 @@ crossorigin="anonymous"></script>
 <link href="css/mdb.min.css" rel="stylesheet">
 <!-- Your custom styles (optional) -->
 <link href="css/style.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/darktheme.css">
-
+<link href="css/sizefix.css" rel="stylesheet">
