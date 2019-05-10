@@ -1,0 +1,42 @@
+
+.holder {
+  text-align: center;
+}
+
+.inputcol {
+  width: 100%;
+}
+.holder
+{
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 1em;
+}
+td
+{
+  padding-left: 1em;
+  padding-right: 1em;
+}
+td
+{
+  padding-bottom: 1em;
+}
+textarea
+{
+  border-radius: .5em;
+  min-width: 17em !important;
+}
+input not(.input-group)
+{
+  border-radius: .5em;
+  min-width: 17em !important;;
+}
+.input-group
+{
+  border-radius: .5em;
+  width: 20em  !important;
+}
+button
+{
+  border-radius: 2em;
+}
